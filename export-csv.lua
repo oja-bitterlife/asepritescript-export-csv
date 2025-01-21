@@ -1,23 +1,23 @@
+-- Check if the user selected layer is not tilemap
+local layer = app.activeLayer
+if not layer.isTilemap then return app.alert("Layer is not tilemap") end
+
 -- Open Dialog
 -- ********************************************************
-local dialog = Dialog("Export Tilemap as .csv")
-dialog:file{id="path", filename="", open=false, filetypes={"csv"}, save=true, focus=true}
+local data = 
+  Dialog("Export Tilemap as .csv"):file{id="path", label="Path:", filename="", open=false, filetypes={"csv"}, save=true, focus=true}
+  :label{label="Layer:", text=layer.name}
+  :label{label="Frame:", text=app.frame.frameNumber}
+  :separator{}
   :button{id="ok",text="&OK",focus=true}
   :button{text="&Cancel" }
-  :show()
-local data = dialog.data
+  :show().data
 
--- Check Status
--- ********************************************************
 -- Check if the user clicked OK or Cancel
 if not data.ok then return end
 
 -- Check if the user selected a path
 if (#data.path <= 0) then return app.alert("No path selected") end
-
--- Check if the user selected layer is not tilemap
-local layer = app.activeLayer
-if not layer.isTilemap then return app.alert("Layer is not tilemap") end
 
 -- Start Export
 -- ********************************************************
