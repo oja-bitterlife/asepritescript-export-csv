@@ -13,5 +13,6 @@
 2. Select Frame
 3. Menu: File > Scripts > export-csv
 4. Press SelectFile button and set filename.
-5. Press OK button.<br>
+5. Press OK button.
+
 ![open_folder](https://github.com/oja-bitterlife/asepritescript-export-csv/blob/main/img/dialog.png)
